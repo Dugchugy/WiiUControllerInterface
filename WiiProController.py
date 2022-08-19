@@ -43,7 +43,7 @@ class BluetoothDevice:
 
 class BluetoothController(BluetoothDevice):
 
-    def __init__(self, event_input_device=None, device_search_term=None, verbose=False):
+    def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
 
         #sets wether or not to output data for each event
         self.verbose = verbose
