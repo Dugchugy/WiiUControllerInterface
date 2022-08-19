@@ -108,6 +108,8 @@ class BluetoothController(BluetoothDevice):
 
             val = event.value
 
+            state[btn] = val;
+
             if(event.code > 4):
                 print(btn)
 
