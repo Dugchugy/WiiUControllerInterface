@@ -114,7 +114,7 @@ class BluetoothController(BluetoothDevice):
                         print(val)
                         print(btn)
         except OSError:
-            self.device = self.load_device(self.device_search_term)
+            self.load_device(self.device_search_term)
 
 
     def update(self):
