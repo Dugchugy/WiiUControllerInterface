@@ -89,5 +89,5 @@ class BluetoothController(BluetoothDevice):
             self.readEvents()
 
 if __name__ == "__main__":
-    ctl = BluetoothGameController(verbose=True)
+    ctl = BluetoothController(verbose=True)
     ctl.update()
