@@ -43,11 +43,9 @@ class BluetoothDevice:
 
 class BluetoothController(BluetoothDevice):
 
-    def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
+    def __init__(self, config_path=None, device_search_term=None):
 
-        #sets wether or not to output data for each event
-        self.verbose = verbose
-        self.running = False
+        self.connected = True
 
         #records the current state of the controller
         self.state = {
@@ -85,11 +83,8 @@ class BluetoothController(BluetoothDevice):
         #finds the search term to find the device by
         self.device_search_term = self.config.get('device_search_term', 1280)
 
-        if event_input_device is None:
-            self.load_device(self.device_search_term)
-            print(self.device.name)
-        else:
-            self.device = event_input_device
+        self.load_device(self.device_search_term)
+        print(self.device.name)
 
     def _get_default_config_path(self):
         return os.path.join(os.path.dirname(__file__), 'wiiu_config.yml')
@@ -103,20 +98,23 @@ class BluetoothController(BluetoothDevice):
         return config
 
     def readEvents(self):
-        for event in self.device.read_loop():
-            btn = self.btn_map.get(event.code)
+        try:
+            for event in self.device.read_loop():
+                btn = self.btn_map.get(event.code)
 
-            val = event.value
+                val = event.value
 
-            state[btn] = val;
+                state[btn] = val;
 
-            if(event.code > 4):
-                print(btn)
-
-            else:
-                if(val > 150 or val < -150):
-                    print(val)
+                if(event.code > 4):
                     print(btn)
+
+                else:
+                    if(val > 150 or val < -150):
+                        print(val)
+                        print(btn)
+        except OSError:
+            self.device = self.load_device(self.device_search_term)
 
 
     def update(self):
