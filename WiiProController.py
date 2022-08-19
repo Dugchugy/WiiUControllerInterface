@@ -82,7 +82,12 @@ class BluetoothController(BluetoothDevice):
 
     def readEvents(self):
         for event in self.device.read_loop():
-            print(event)
+            btn = self.btn_map.get(event.code)
+
+            val = event.value
+
+            if(event.code > 4):
+                print("btn")
 
     def update(self):
         while True:
