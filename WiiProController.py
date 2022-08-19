@@ -50,7 +50,29 @@ class BluetoothController(BluetoothDevice):
         self.running = False
 
         #records the current state of the controller
-        self.state = {}
+        self.state = {
+            "A": 0,
+            "B": 0,
+            "Y": 0,
+            "X": 0,
+            "LEFT_BOTTOM_TRIGGER": 0,
+            "LEFT_TOP_TRIGGER": 0,
+            "RIGHT_TOP_TRIGGER": 0,
+            "RIGHT_BOTTOM_TRIGGER": 0,
+            "PAD_RIGHT": 0,
+            "PAD_LEFT": 0,
+            "PAD_UP": 0,
+            "PAD_DOWN": 0,
+            "START": 0,
+            "SELECT": 0,
+            "HOME": 0,
+            "LEFT_STICK_PRESS": 0,
+            "LEFT_STICK_X": 0,
+            "LEFT_STICK_Y": 0,
+            "RIGHT_STICK_PRESS": 0,
+            "RIGHT_STICK_X": 0,
+            "RIGHT_STICK_Y": 0
+        }
 
         #reads the config file
         if config_path is None:
