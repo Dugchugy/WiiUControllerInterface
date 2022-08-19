@@ -87,8 +87,11 @@ class BluetoothController(BluetoothDevice):
             val = event.value
 
             if(event.code > 4):
-                print(event.code)
                 print(btn)
+
+            else:
+                print(val)
+
 
     def update(self):
         while True:
