@@ -82,7 +82,12 @@ class BluetoothController(BluetoothDevice):
 
     def readEvents(self):
         for event in self.device.read_loop():
-            
+            print(event)
 
-            
-        
+    def update(self):
+        while True:
+            self.readEvents()
+
+if __name__ == "__main__":
+    ctl = BluetoothGameController(verbose=True)
+    ctl.update()
