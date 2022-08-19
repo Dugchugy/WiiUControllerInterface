@@ -90,7 +90,9 @@ class BluetoothController(BluetoothDevice):
                 print(btn)
 
             else:
-                print(val)
+                if(val > 50 or val < -50):
+                    print(val)
+                    print(btn)
 
 
     def update(self):
