@@ -21,7 +21,7 @@ namespace Controller{
         
 
     private:
-        (struct libevdev)* device;
+        struct libevdev *device;
 
     };
 
