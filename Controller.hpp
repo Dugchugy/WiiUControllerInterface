@@ -1,7 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include<libevdev.h>
+#include<libevdev-1.0/libevdev/libevdev.h>
 
 namespace Controller{
 

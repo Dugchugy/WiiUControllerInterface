@@ -1,6 +1,6 @@
 #include "Controller.hpp"
 
-#include<libevdev.h>
+#include<libevdev-1.0/libevdev/libevdev.h>
 
 namespace Controller{
 
