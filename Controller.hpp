@@ -8,10 +8,10 @@ namespace Controller{
     class WiiUProController{
     public:
         //defulat contstructor
-        WiiUProController()
+        WiiUProController();
 
         //destroys dynamic memory for the class
-        ~WiiUProController()
+        ~WiiUProController();
 
         //creates a copy of the class
         WiiUProController(const WiiUProController& toCopy);
@@ -21,8 +21,17 @@ namespace Controller{
         
 
     private:
-        struct libevdev* device;
+        (struct libevdev)* device;
 
+    };
+
+    class DeviceAccessError{
+    public:
+        DeviceAccessError();
+
+        DeviceAccessError(int EN);
+
+        int ErrorNum;
     };
 
 } //Controller end
