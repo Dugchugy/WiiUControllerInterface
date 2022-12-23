@@ -1,7 +1,7 @@
 #include "Controller.hpp"
 
 #include<libevdev-1.0/libevdev/libevdev.h>
-#include<stdio>
+#include<stdio.h>
 
 namespace Controller{
 
