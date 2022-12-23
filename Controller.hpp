@@ -10,6 +10,9 @@ namespace Controller{
         //defulat contstructor
         WiiUProController();
 
+        //creates device for the controller at the specified path
+        WiiUProController(const std::string& filePath);
+
         //destroys dynamic memory for the class
         ~WiiUProController();
 
