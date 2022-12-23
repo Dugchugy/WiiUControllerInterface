@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include<libevdev-1.0/libevdev/libevdev.h>
+#include<string>
 
 namespace Controller{
 
