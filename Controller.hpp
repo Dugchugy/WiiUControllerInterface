@@ -21,7 +21,7 @@ namespace Controller{
         WiiUProController(const WiiUProController& toCopy);
 
         //overloads the equals operator
-        WiiUProController& operator =(const WiiUProController& toCopy);
+        WiiUProController& operator =(WiiUProController& toCopy);
         
 
     private:
