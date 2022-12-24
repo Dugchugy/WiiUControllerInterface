@@ -84,7 +84,7 @@ namespace Controller{
             std::string path = entry.path();
 
             //opens the file at the path
-            int fd = open(path, O_RDONLY);
+            int fd = open(path.c_str(), O_RDONLY);
 
             //creates a new input device
             struct libevdev *dev = libevdev_new();
@@ -93,7 +93,7 @@ namespace Controller{
             libevdev_set_fd(dev, fd);
 
             //reads the device name
-            std::string name = libdev_get_name(dev);
+            std::string name = libevdev_get_name(dev);
 
             //frees the device
             libevdev_free(dev);
@@ -105,7 +105,7 @@ namespace Controller{
                 finalPath = path;
 
                 //increases the number of matches found
-                matchCound++;
+                matchCount++;
             }
         }
 
