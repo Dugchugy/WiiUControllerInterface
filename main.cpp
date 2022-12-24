@@ -30,9 +30,9 @@ int main(){
             //continues searching
             searching = true;
 
-            std::cout << "failed to find device attempting again in 3 seconds";
+            std::cout << "failed to find device attempting again in 3 seconds\n";
 
-            sleep(3000);
+            sleep(3);
 
         }
     }
