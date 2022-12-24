@@ -2,7 +2,7 @@
 
 int main(){
 
-    std::cout << "starting wii u controller interface";
+    std::cout << "starting wii u controller interface\n";
 
 
 

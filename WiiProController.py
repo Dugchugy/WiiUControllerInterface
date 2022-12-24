@@ -23,6 +23,7 @@ class BluetoothDevice:
                 likely_devices.append(device)
 
         if len(likely_devices) == 1:
+            print(likely_devices[0])
             # correct device was likely found
             return likely_devices[0]
 
