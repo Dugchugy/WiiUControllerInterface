@@ -7,7 +7,7 @@ int main(){
 
     //device /dev/input/event4, name "Nintendo Wii Remote Pro Controller"
 
-    Controller::WiiUProController.findDevicePath("Nintendo");
+    Controller::WiiUProController::findDevicePath("Nintendo");
 
 
 
