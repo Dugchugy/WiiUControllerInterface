@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Controller.hpp"
 
 int main(){
 
@@ -6,7 +7,7 @@ int main(){
 
     //device /dev/input/event4, name "Nintendo Wii Remote Pro Controller"
 
-    
+    Controller::WiiUProController.findDevicePath("Nintendo");
 
 
 

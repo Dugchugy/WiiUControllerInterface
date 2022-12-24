@@ -6,8 +6,9 @@
 #include<stdio.h>
 #include<string>
 #include<filesystem>
+#include<iostream>
 
-namespace fs = std::filesystem
+namespace fs = std::filesystem;
 
 namespace Controller{
 
