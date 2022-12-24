@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Controller.hpp"
+#include <stdlib.h>
 
 using namespace Controller;
 
@@ -28,6 +29,10 @@ int main(){
 
             //continues searching
             searching = true;
+
+            cout << "failed to find device attempting again in 3 seconds";
+
+            sleep(3000);
 
         }
     }
