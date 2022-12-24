@@ -16,7 +16,7 @@ namespace Controller{
         device = NULL;
 
         //attempts to open the file
-        int fd = open(filePath, O_RDONLY)
+        int fd = open(filePath.c_str(), O_RDONLY)
 
         //checks if the file was opened
         if(fd < 0){
@@ -61,7 +61,7 @@ namespace Controller{
         //*device = *toCopy.device;
         
         //returns toCopy
-        //return toCopy;
+        return toCopy;
     }
 
     //createsa device access error with error number 0
