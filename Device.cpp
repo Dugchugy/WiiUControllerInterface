@@ -1,4 +1,4 @@
-#include "Controller.hpp"
+#include "Device.hpp"
 
 #include<libevdev-1.0/libevdev/libevdev.h>
 #include<sys/stat.h>

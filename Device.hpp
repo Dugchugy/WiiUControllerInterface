@@ -1,5 +1,5 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#ifndef DEVICE_H
+#define DEVICE_H
 
 #include<libevdev-1.0/libevdev/libevdev.h>
 #include<string>

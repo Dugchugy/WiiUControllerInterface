@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Controller.hpp"
+#include "Device.hpp"
 #include<unistd.h>
 
 using namespace Controller;
