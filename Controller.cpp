@@ -30,7 +30,7 @@ namespace Controller{
         //checks if the device was created properly
         if(!device){
             //throws an error
-            throw DeviceAccessError;
+            throw DeviceAccessError();
         }
 
         //sets the device to the accosiated file device
@@ -50,18 +50,18 @@ namespace Controller{
 
     WiiUProController::WiiUProController(const WiiUProController& toCopy){
         //allcoates memory for the device
-        device = new (struct libevdev);
+        //device = new (struct libevdev);
 
         //copies thedevice data from toCopy to device
-        *device = *toCopy.device;
+        //*device = *toCopy.device;
     }
 
     WiiUProController& WiiUProController::operator =(const WiiUProController& toCopy){
         //copies thedevice data from toCopy to device
-        *device = *toCopy.device;
+        //*device = *toCopy.device;
         
         //returns toCopy
-        return toCopy;
+        //return toCopy;
     }
 
     //createsa device access error with error number 0
