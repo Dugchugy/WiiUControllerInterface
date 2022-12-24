@@ -16,7 +16,7 @@ namespace Controller{
         device = NULL;
 
         //attempts to open the file
-        int fd = open(filePath.c_str(), O_RDONLY)
+        int fd = open(filePath.c_str(), O_RDONLY);
 
         //checks if the file was opened
         if(fd < 0){
@@ -56,7 +56,7 @@ namespace Controller{
         //*device = *toCopy.device;
     }
 
-    WiiUProController& WiiUProController::operator =(const WiiUProController& toCopy){
+    WiiUProController& WiiUProController::operator =(WiiUProController& toCopy){
         //copies thedevice data from toCopy to device
         //*device = *toCopy.device;
         
