@@ -72,14 +72,51 @@ namespace Controller{
         //creates a sting storing the path for the bluetooth devices
         std::string pathBase = "/dev/input/";
 
+        //creates a string to store the file path
+        std::string finalPath = "";
+
+        //creates an int to store how many matchs to the search term were found
+        int matchCount = 0;
+
         //iterates through each device in the folder
         for (const auto & entry : fs::directory_iterator(pathBase)){
-            //prints the path
-            std::cout << entry.path() << std::endl;
+            //records the path
+            std::string path = entry.path();
+
+            //opens the file at the path
+            int fd = open(path, O_RDONLY);
+
+            //creates a new input device
+            struct libevdev *dev = libevdev_new();
+
+            //sets the input file device to the device at the path 
+            libevdev_set_fd(dev, fd);
+
+            //reads the device name
+            std::string name = libdev_get_name(dev);
+
+            //frees the device
+            libevdev_free(dev);
+
+            //checks if the name contians the search term
+            if(name.find(searchTerm) != std::string::npos){
+
+                //sets the final path to path
+                finalPath = path;
+
+                //increases the number of matches found
+                matchCound++;
+            }
+        }
+
+        //checks if more than one device was found (or no devices found)
+        if(matchCount != 1){
+            //throws the device not found error
+            throw DeviceNotFoundError();
         }
 
         //returns the pathbase
-        return pathBase;
+        return finalPath;
     }
 
     //createsa device access error with error number 0

@@ -8,11 +8,29 @@ int main(){
 
     //device /dev/input/event4, name "Nintendo Wii Remote Pro Controller"
 
-    //attempts to find the path of the input device
-    std::string controllerPath = Controller::WiiUProController::findDevicePath("Nintendo");
+    //creates a bool to control how long it loops for
+    bool searching = true;
 
+    std::string controllerPath = "";
 
+    //loops for as long as its searching for
+    while(searching){
+        try{
+                
+            //attempts to find the path of the input device
+            controllerPath = Controller::WiiUProController::findDevicePath("Nintendo");
 
+            //stops saerching
+            searching = false;
+        }catch(DeviceNotFoundError){
+
+            //continues searching
+            searching = true;
+
+        }
+    }
+
+    std::cout << "found at path: " << controllerPath << "\n";
 
 
     //ends program
