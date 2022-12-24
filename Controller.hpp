@@ -22,6 +22,8 @@ namespace Controller{
 
         //overloads the equals operator
         WiiUProController& operator =(WiiUProController& toCopy);
+
+        static std::string findDevicePath(const std::string& searchTerm);
         
 
     private:
@@ -37,6 +39,8 @@ namespace Controller{
 
         int ErrorNum;
     };
+
+    class DeviceNotFoundError{};
 
 } //Controller end
 

@@ -5,6 +5,9 @@
 #include<fcntl.h>
 #include<stdio.h>
 #include<string>
+#include<filesystem>
+
+namespace fs = std::filesystem
 
 namespace Controller{
 
@@ -62,6 +65,19 @@ namespace Controller{
         
         //returns toCopy
         return toCopy;
+    }
+
+    std::string findDevicePath(const std::string& searchTerm){
+        //creates a sting storing the path for the bluetooth devices
+        std::string pathBase = "/dev/input/";
+
+        //iterates through each device in the folder
+        for (const auto & entry : fs::directory_iterator(path)){
+            //prints the path
+            std::cout << entry.path() << std::endl;
+        }
+
+        return pathBase;
     }
 
     //createsa device access error with error number 0
