@@ -8,7 +8,7 @@
 #include<filesystem>
 #include<iostream>
 
-namespace fs = std::filesystem;
+//namespace fs = std::filesystem;
 
 namespace Controller{
 
@@ -73,7 +73,7 @@ namespace Controller{
         std::string pathBase = "/dev/input/";
 
         //iterates through each device in the folder
-        for (const auto & entry : fs::directory_iterator(path)){
+        for (const auto & entry : std::filesystem::directory_iterator(pathBase)){
             //prints the path
             std::cout << entry.path() << std::endl;
         }
