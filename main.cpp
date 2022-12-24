@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Controller.hpp"
 
+using namespace Controller;
+
 int main(){
 
     //prints a message to show that the program is starting
@@ -18,7 +20,7 @@ int main(){
         try{
                 
             //attempts to find the path of the input device
-            controllerPath = Controller::WiiUProController::findDevicePath("Nintendo");
+            controllerPath = WiiUProController::findDevicePath("Nintendo");
 
             //stops saerching
             searching = false;
