@@ -6,22 +6,22 @@
 
 namespace Controller{
 
-    class WiiUProController{
+    class evDevice{
     public:
         //defulat contstructor
-        WiiUProController();
+        evDevice();
 
         //creates device for the controller at the specified path
-        WiiUProController(const std::string& filePath);
+        evDevice(const std::string& filePath);
 
         //destroys dynamic memory for the class
-        ~WiiUProController();
+        ~evDevice();
 
         //creates a copy of the class
-        WiiUProController(const WiiUProController& toCopy);
+        evDevice(const evDevice& toCopy);
 
         //overloads the equals operator
-        WiiUProController& operator =(WiiUProController& toCopy);
+        evDevice& operator =(evDevice& toCopy);
 
         //finds the path for the file device
         static std::string findDevicePath(const std::string& searchTerm);

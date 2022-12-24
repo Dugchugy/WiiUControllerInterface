@@ -21,7 +21,7 @@ int main(){
         try{
                 
             //attempts to find the path of the input device
-            controllerPath = WiiUProController::findDevicePath("Nintendo");
+            controllerPath = evDevice::findDevicePath("Nintendo");
 
             //stops saerching
             searching = false;
@@ -30,14 +30,22 @@ int main(){
             //continues searching
             searching = true;
 
+            //informs the user the controller wasn't found and it will try to find it again in 3 seconds
             std::cout << "failed to find device attempting again in 3 seconds\n";
 
+            //waits 3 seconds
             sleep(3);
 
         }
     }
 
+    //prints path the controller was found at
     std::cout << "found at path: " << controllerPath << "\n";
+
+    //creates a new controller
+    evDevice controller(controllerPath);
+
+    
 
 
     //ends program

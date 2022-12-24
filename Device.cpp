@@ -12,9 +12,9 @@ namespace fs = std::experimental::filesystem;
 
 namespace Controller{
 
-    WiiUProController::WiiUProController() : WiiUProController("path"){}
+    evDevice::evDevice() : evDevice("path"){}
 
-    WiiUProController::WiiUProController(const std::string& filePath){
+    evDevice::evDevice(const std::string& filePath){
 
         //initializes device to null
         device = NULL;
@@ -47,12 +47,12 @@ namespace Controller{
         }
     }
 
-    WiiUProController::~WiiUProController(){
+    evDevice::~evDevice(){
         //deletes the device
         libevdev_free(device);
     }
 
-    WiiUProController::WiiUProController(const WiiUProController& toCopy){
+    evDevice::evDevice(const evDevice& toCopy){
         //allcoates memory for the device
         //device = new (struct libevdev);
 
@@ -60,7 +60,7 @@ namespace Controller{
         //*device = *toCopy.device;
     }
 
-    WiiUProController& WiiUProController::operator =(WiiUProController& toCopy){
+    evDevice& evDevice::operator =(evDevice& toCopy){
         //copies thedevice data from toCopy to device
         //*device = *toCopy.device;
         
@@ -68,7 +68,7 @@ namespace Controller{
         return toCopy;
     }
 
-    std::string WiiUProController::findDevicePath(const std::string& searchTerm){
+    std::string evDevice::findDevicePath(const std::string& searchTerm){
         //creates a sting storing the path for the bluetooth devices
         std::string pathBase = "/dev/input/";
 
