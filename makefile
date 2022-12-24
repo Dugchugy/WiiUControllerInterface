@@ -1,7 +1,7 @@
 all : main
 
 main: main.o Controller.o
-	g++ -o main main.o Controller.o
+	g++ -o main main.o Controller.o -I/usr/include/libevdev-1.0 -levdev
 
 main.o: main.cpp Controller.hpp
 	g++ -g -c main.cpp
