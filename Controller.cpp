@@ -68,7 +68,7 @@ namespace Controller{
         return toCopy;
     }
 
-    std::string findDevicePath(const std::string& searchTerm){
+    std::string WiiUProController::findDevicePath(const std::string& searchTerm){
         //creates a sting storing the path for the bluetooth devices
         std::string pathBase = "/dev/input/";
 
@@ -78,6 +78,7 @@ namespace Controller{
             std::cout << entry.path() << std::endl;
         }
 
+        //returns the pathbase
         return pathBase;
     }
 

@@ -23,6 +23,7 @@ namespace Controller{
         //overloads the equals operator
         WiiUProController& operator =(WiiUProController& toCopy);
 
+        //finds the path for the file device
         static std::string findDevicePath(const std::string& searchTerm);
         
 

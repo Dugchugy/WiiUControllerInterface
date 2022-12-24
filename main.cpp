@@ -3,11 +3,13 @@
 
 int main(){
 
+    //prints a message to show that the program is starting
     std::cout << "starting wii u controller interface\n";
 
     //device /dev/input/event4, name "Nintendo Wii Remote Pro Controller"
 
-    Controller::WiiUProController::findDevicePath("Nintendo");
+    //attempts to find the path of the input device
+    std::string controllerPath = Controller::WiiUProController::findDevicePath("Nintendo");
 
 
 
