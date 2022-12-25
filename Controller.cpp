@@ -62,7 +62,8 @@ namespace Controllers{
         copy.head = head;
         head = temp;
 
-        return toCopy;
+        //returns this
+        return *this;
     }
 
     bool ControllerState::insertAfter(ControllerStateNode* Behind, std::string ID, int val){
@@ -163,11 +164,13 @@ namespace Controllers{
 
     bool Controller::UpdateState(){
         //reads all the current events
-        vector<struct input_event> events = device.getEvents();
+        std::vector<struct input_event> events = device.getEvents();
 
         for(int i = 0; i < events.size(); i++){
             std::cout << "event: " << events[i].code << " with value " << events[i].value << "\n";
         }
+
+        return true;
     }
 
 }//end of controller namespace
