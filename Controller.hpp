@@ -15,6 +15,7 @@ namespace Controllers{
     };
 
     class ControllerState{
+    public:
         //creates an empty state list
         ControllerState();
 
