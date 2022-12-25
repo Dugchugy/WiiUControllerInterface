@@ -44,6 +44,16 @@ int main(){
             //waits 3 seconds
             sleep(3);
 
+        }catch(DeviceAccessError){
+
+            //continues searching
+            searching = true;
+
+            //informs the user the controller wasn't found and it will try to find it again in 3 seconds
+            std::cout << "Device access error. something went wrong, trying again in 3 seconds\n";
+
+            //waits 3 seconds
+            sleep(3);
         }
     }
 
