@@ -63,7 +63,7 @@ namespace Controllers{
         device = toCopy.device;
         
         //returns toCopy
-        return toCopy;
+        return *this;
     }
 
     std::string evDevice::findDevicePath(const std::string& searchTerm){
