@@ -55,12 +55,14 @@ namespace Controllers{
     //sets one controller state to a copy of another
     ControllerState& ControllerState::operator = (const ControllerState& toCopy){
         //creates a copy of the state to copy
-        ControllerState& copy(toCopy);
+        ControllerState copy(toCopy);
 
         //swaps the heads of the copy and the calling list
         ControllerStateNode* temp = copy.head;
         copy.head = head;
         head = temp;
+
+        return toCopy;
     }
 
     bool ControllerState::insertAfter(ControllerStateNode* Behind, std::string ID, int val){

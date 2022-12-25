@@ -55,15 +55,12 @@ namespace Controllers{
 
     evDevice::evDevice(const evDevice& toCopy){
         //allcoates memory for the device
-        //device = new (struct libevdev);
-
-        //copies thedevice data from toCopy to device
-        //*device = *toCopy.device;
+        device = toCopy.device;
     }
 
     evDevice& evDevice::operator =(evDevice& toCopy){
         //copies thedevice data from toCopy to device
-        //*device = *toCopy.device;
+        device = toCopy.device;
         
         //returns toCopy
         return toCopy;
