@@ -144,6 +144,9 @@ namespace Controllers{
         //looks for a device with the specifed search term
         std::string path = evDevice::findDevicePath(searchTerm);
 
+        //reports the found device path
+        std::cout << "found at path: " << path << "\n";
+
         //sets device to a new device at the found path
         device = evDevice(path);
 
