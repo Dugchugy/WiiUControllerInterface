@@ -3,6 +3,7 @@
 
 #include<libevdev-1.0/libevdev/libevdev.h>
 #include<string>
+#include<vector>
 
 namespace Controller{
 
@@ -22,6 +23,9 @@ namespace Controller{
 
         //overloads the equals operator
         evDevice& operator =(evDevice& toCopy);
+
+        //reads all buffered events into a vector
+        std::vector<struct input_event> getEvents();
 
         //finds the path for the file device
         static std::string findDevicePath(const std::string& searchTerm);

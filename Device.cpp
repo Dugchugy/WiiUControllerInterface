@@ -7,6 +7,7 @@
 #include<string>
 #include<experimental/filesystem>
 #include<iostream>
+#include<vector>
 
 namespace fs = std::experimental::filesystem;
 
@@ -117,6 +118,29 @@ namespace Controller{
 
         //returns the pathbase
         return finalPath;
+    }
+
+    std::vector<struct input_event> evDevice::getEvents(){
+        //creates an empty event list
+        std::vector<struct input_event> eventList;
+
+        //creates a structure to store the events as they are read
+        struct input_event ev;
+
+        //loops until there are no more pending events
+        while(libevdev_has_event_pending(device)){
+            //write the new event to ev
+            libevdev_next_event(device, LIBEVDEV_READ_FLAG_NORMAL, &ev);
+
+            //adds the new event to the vector
+            eventList.push_back(ev);
+        }
+
+        //shrinks the vector to its current size
+        eventList.shrink_to_fit();
+
+        //returns the eventList
+        return eventList;
     }
 
     //createsa device access error with error number 0
