@@ -11,7 +11,7 @@
 
 namespace fs = std::experimental::filesystem;
 
-namespace Controller{
+namespace Controllers{
 
     evDevice::evDevice() : evDevice("path"){}
 

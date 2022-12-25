@@ -3,7 +3,7 @@
 #include "Controller.hpp"
 #include<unistd.h>
 
-using namespace Controller;
+using namespace Controllers;
 
 int main(){
 

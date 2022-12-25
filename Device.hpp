@@ -5,7 +5,7 @@
 #include<string>
 #include<vector>
 
-namespace Controller{
+namespace Controllers{
 
     class evDevice{
     public:

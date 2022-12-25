@@ -5,7 +5,7 @@
 #include<iostream>
 
 
-namespace Controller{
+namespace Controllers{
 
     //creates an empty controller state
     ControllerState::ControllerState(){

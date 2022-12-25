@@ -5,29 +5,13 @@
 #include "Device.hpp"
 #include <unordered_map>
 
-namespace Controller{
-    class Controller{
+namespace Controllers{
+
+    class ControllerStateNode{
     public:
-        //constructs a controller object for a wii u pro controller
-        Controller();
-
-        //construcnts a wii u pro controller with the specified search term
-        Controller(std::string searchTerm);
-
-        //gets the current state of the controller
-        ControllerState getControllerState();
-
-        //querys the state of a specifed key
-        int QueryKey(std::string keyCode);
-
-        //updates the current state of the controller in the code
-        bool UpdateState();
-
-    private:
-        evDevice device;
-        ControllerState state;
-
-        //unordered_map<int, std::string> eventMap;
+        ControllerStateNode* next;
+        std::string ID;
+        int val;
     };
 
     class ControllerState{
@@ -54,14 +38,31 @@ namespace Controller{
 
     private:
         ControllerStateNode* head;
-    }
+    };
 
-    class ControllerStateNode{
+    class Controller{
     public:
-        ControllerStateNode* next;
-        std::string ID;
-        int val;
-    }
+        //constructs a controller object for a wii u pro controller
+        Controller();
+
+        //construcnts a wii u pro controller with the specified search term
+        Controller(std::string searchTerm);
+
+        //gets the current state of the controller
+        ControllerState getControllerState();
+
+        //querys the state of a specifed key
+        int QueryKey(std::string keyCode);
+
+        //updates the current state of the controller in the code
+        bool UpdateState();
+
+    private:
+        evDevice device;
+        ControllerState state;
+
+        //unordered_map<int, std::string> eventMap;
+    };
 
 }//end of Controller
 
