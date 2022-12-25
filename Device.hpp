@@ -22,7 +22,7 @@ namespace Controllers{
         evDevice(const evDevice& toCopy);
 
         //overloads the equals operator
-        evDevice& operator =(evDevice& toCopy);
+        evDevice& operator =(const evDevice& toCopy);
 
         //reads all buffered events into a vector
         std::vector<struct input_event> getEvents();
