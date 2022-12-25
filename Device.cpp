@@ -58,7 +58,7 @@ namespace Controllers{
         device = toCopy.device;
     }
 
-    evDevice& evDevice::operator =(evDevice& toCopy){
+    evDevice& evDevice::operator =(const evDevice& toCopy){
         //copies thedevice data from toCopy to device
         device = toCopy.device;
         
