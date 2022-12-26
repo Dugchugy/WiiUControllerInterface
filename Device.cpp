@@ -64,13 +64,14 @@ namespace Controllers{
     }
 
     evDevice::evDevice(const evDevice& toCopy){
-        //allcoates memory for the device
-        device = toCopy.device;
+        libevdev_new_from_fd(libevdev_get_fd(toCopy.device), &device);
     }
 
     evDevice& evDevice::operator =(const evDevice& toCopy){
         //copies thedevice data from toCopy to device
-        device = toCopy.device;
+        libevdev_free(device);
+        
+        libevdev_new_from_fd(libevdev_get_fd(toCopy.device), &device);
         
         //returns toCopy
         return *this;
