@@ -26,6 +26,7 @@ int main(){
 
             //updates the controllers state every second
             while(true){
+                std::cout << "starting update\n";
                 //updates the state
                 WiiUPro.UpdateState();
 

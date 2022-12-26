@@ -51,6 +51,11 @@ namespace Controllers{
             //throws an error
             throw DeviceAccessError(err);
         }
+
+        if(libevdev_get_fd(device) == -1){
+            std::cout << "file device not set\n";
+            throw DeviceAccessError();
+        }
     }
 
     evDevice::~evDevice(){
