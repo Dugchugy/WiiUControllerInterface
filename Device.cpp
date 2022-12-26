@@ -23,7 +23,7 @@ namespace Controllers{
         setUpDevice(filePath);
     }
 
-    void setUpDevice(const std::string& filePath){
+    void evDevice::setUpDevice(const std::string& filePath){
 
         //attempts to open the file
         int fd = open(filePath.c_str(), O_RDONLY);
