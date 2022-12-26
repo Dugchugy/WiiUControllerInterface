@@ -154,6 +154,9 @@ namespace Controllers{
 
         //sets the current controller state to a new controller state
         state = ControllerState();
+
+        //checks the validity of the device
+        device.checkValidity();
     }
 
     //gets the current state of the controller

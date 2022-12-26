@@ -152,6 +152,12 @@ namespace Controllers{
         return eventList;
     }
 
+    void evDevice::checkValidity(){
+        if(libevdev_get_fd(device)){
+            throw DeviceAccessError();
+        }
+    }
+
     //createsa device access error with error number 0
     DeviceAccessError::DeviceAccessError() : DeviceAccessError(0) {}
 

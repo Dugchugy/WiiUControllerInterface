@@ -30,6 +30,8 @@ namespace Controllers{
         //sets up the device for the evDevice
         void setUpDevice(const std::string& filePath);
 
+        void checkValidity();
+
         //finds the path for the file device
         static std::string findDevicePath(const std::string& searchTerm);
         
