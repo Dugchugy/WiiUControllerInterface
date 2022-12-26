@@ -24,6 +24,8 @@ int main(){
 
             std::cout << "created object\n";
 
+            throw 0;
+
             //updates the controllers state every second
             while(true){
                 //updates the state
