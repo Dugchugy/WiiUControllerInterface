@@ -27,6 +27,9 @@ namespace Controllers{
         //reads all buffered events into a vector
         std::vector<struct input_event> getEvents();
 
+        //sets up the device for the evDevice
+        void setUpDevice(const std::string& filePath);
+
         //finds the path for the file device
         static std::string findDevicePath(const std::string& searchTerm);
         

@@ -13,12 +13,17 @@ namespace fs = std::experimental::filesystem;
 
 namespace Controllers{
 
-    evDevice::evDevice() : evDevice("path"){}
-
-    evDevice::evDevice(const std::string& filePath){
-
+    evDevice::evDevice(){
         //initializes device to null
         device = NULL;
+    }
+
+    evDevice::evDevice(const std::string& filePath) : evDevice(){
+
+        setUpDevice(filePath);
+    }
+
+    void setUpDevice(const std::string& filePath){
 
         //attempts to open the file
         int fd = open(filePath.c_str(), O_RDONLY);
