@@ -18,9 +18,11 @@ int main(){
     //loops for as long as its searching for
     while(searching){
         try{
-                
+            std::cout << "starts loop\n";    
             //apttempts to create a new controller
             Controller WiiUPro;
+
+            std::cout << "created object\n";
 
             //updates the controllers state every second
             while(true){

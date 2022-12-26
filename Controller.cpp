@@ -141,6 +141,8 @@ namespace Controllers{
 
     Controller::Controller(std::string searchTerm){
 
+        std::cout << "looking for device\n";
+
         //looks for a device with the specifed search term
         std::string path = evDevice::findDevicePath(searchTerm);
 
