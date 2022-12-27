@@ -47,7 +47,7 @@ namespace Controllers{
         Controller();
 
         //construcnts a wii u pro controller with the specified search term
-        Controller(std::string searchTerm);
+        Controller(std::string ymalPath);
 
         //gets the current state of the controller
         ControllerState getControllerState();
@@ -62,7 +62,9 @@ namespace Controllers{
         evDevice device;
         ControllerState state;
 
-        //unordered_map<int, std::string> eventMap;
+        int sensitivity;
+
+        unordered_map<int, std::string> eventMap;
     };
 
 }//end of Controller

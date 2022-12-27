@@ -3,6 +3,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
+#include<node.h>
 
 
 namespace Controllers{
@@ -137,11 +138,18 @@ namespace Controllers{
     }
 
     //creates a new controller object with the search term nintendo
-    Controller::Controller(): Controller("Nintendo"){}
+    Controller::Controller(): Controller("wiiu_config.yml"){}
 
-    Controller::Controller(std::string searchTerm){
+    Controller::Controller(std::string yamlPath){
 
         std::cout << "looking for device\n";
+
+        YAML::Node yamlFile = YAML::LoadFile(yamlPath);
+
+        //sets the search term from the ymal file
+        std::string searchTerm = yamlFile["device_search_term"];
+
+        sensitivity = yamlFile["sensitivity"];
 
         //looks for a device with the specifed search term
         std::string path = evDevice::findDevicePath(searchTerm);
