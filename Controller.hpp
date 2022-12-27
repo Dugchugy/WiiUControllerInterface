@@ -64,7 +64,7 @@ namespace Controllers{
 
         int sensitivity;
 
-        unordered_map<int, std::string> eventMap;
+        std::unordered_map<int, std::string> eventMap;
     };
 
 }//end of Controller
