@@ -156,7 +156,7 @@ namespace Controllers{
         state = ControllerState();
 
         //reports that the validity of the deivce is being checked
-        std::cout << "checking device validity";
+        std::cout << "checking device validity\n";
 
         //checks the validity of the device
         device.checkValidity();

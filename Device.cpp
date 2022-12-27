@@ -154,7 +154,9 @@ namespace Controllers{
     }
 
     void evDevice::checkValidity(){
-        if(libevdev_get_fd(device)){
+        //checks if the file device is invalid
+        if(libevdev_get_fd(device) == -1){
+            //throws a device access error
             throw DeviceAccessError();
         }
     }
