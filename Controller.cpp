@@ -155,6 +155,9 @@ namespace Controllers{
         //sets the current controller state to a new controller state
         state = ControllerState();
 
+        //reports that the validity of the deivce is being checked
+        std::cout << "checking device validity";
+
         //checks the validity of the device
         device.checkValidity();
     }
