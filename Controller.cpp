@@ -5,6 +5,9 @@
 #include<iostream>
 #include<unordered_map>
 #include<list>
+#include<cstdlib>
+#include<fstream>
+#include<sstream>
 
 
 namespace Controllers{
@@ -149,7 +152,7 @@ namespace Controllers{
         std::string searchTerm;
 
         //reads the data from the config file
-        readConfigFile(CSVPath, searchTerm)
+        readConfigFile(CSVPath, searchTerm);
 
         std::cout << "looking for device\n";
 
