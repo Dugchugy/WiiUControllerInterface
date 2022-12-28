@@ -191,7 +191,7 @@ namespace Controllers{
         std::vector<struct input_event> events = device.getEvents();
 
         for(int i = 0; i < events.size(); i++){
-            std::cout << "event: " << events[i].code << " with value " << events[i].value << "\n";
+            std::cout << "event: " << eventMap[events[i].code] << " with value " << events[i].value << "\n";
         }
 
         return true;

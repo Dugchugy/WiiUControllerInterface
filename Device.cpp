@@ -129,7 +129,8 @@ namespace Controllers{
     }
 
     std::vector<struct input_event> evDevice::getEvents(){
-        std::cout << "file device: " << libevdev_get_fd(device) << " (-1 is no file device)\n";
+        //ensures that the evDevice is valid before reading events
+        checkValidity();
 
         //creates an empty event list
         std::vector<struct input_event> eventList;
