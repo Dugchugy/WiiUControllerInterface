@@ -244,7 +244,7 @@ namespace Controllers{
                 searchTerm = tags;
             }else{
                 //adds the conbination (ID,Key) to the map
-                eventMap.insert(std::make_pair<int, std::string>(ID,key));
+                eventMap.insert({{ID,key}});
 
                 //checks if the new item is marked as a joystick
                 if(tags == "J"){
