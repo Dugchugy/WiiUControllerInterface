@@ -201,13 +201,13 @@ namespace Controllers{
         //creates a string to store each line during reading
         std::string line;
 
-        //creates variables to store the read data for each line
+        //creates variables to sstore the read data for each line
         std::string key = "";
         int ID = 0;
         std::string tags = "";
         std::string IDstr = "";
 
-        std::cout << "attempying to read file " << filePath << "\n"
+        std::cout << "attempying to read file " << filePath << "\n";
 
         //opens the file
         std::ifstream configFile(filePath);
