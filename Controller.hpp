@@ -68,7 +68,7 @@ namespace Controllers{
 
         int sensitivity;
 
-        std::unordered_map<int, std::pair<std::string, std::string> eventMap;
+        std::unordered_map<int, std::pair<std::string, std::string>> eventMap;
     };
 
     class FileAccessError{};
