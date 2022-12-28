@@ -207,6 +207,8 @@ namespace Controllers{
         std::string tags = "";
         std::string IDstr = "";
 
+        std::cout << "attempying to read file " << filePath << "\n"
+
         //opens the file
         std::ifstream configFile(filePath);
 
