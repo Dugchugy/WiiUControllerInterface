@@ -249,7 +249,7 @@ namespace Controllers{
                 //checks if the new item is marked as a joystick
                 if(tags == "J"){
                     //inserts its key into the joysticks list
-                    joysticks.insert(key);
+                    joysticks.push_front(key);
                 }
             }
         }
