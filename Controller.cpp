@@ -193,7 +193,7 @@ namespace Controllers{
         for(int i = 0; i < events.size(); i++){
 
             //checks if the event comes from a joystick and is below the senitivity
-            if(eventMap[events[i].code].second == "J" && events[i].value < sensitivity){
+            if(eventMap[events[i].code].second == "J" && (events[i].value < sensitivity && events[i].value > -sensitivity)){
                 continue;
             }
 
