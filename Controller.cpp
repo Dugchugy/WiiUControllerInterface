@@ -3,8 +3,8 @@
 #include<string>
 #include<vector>
 #include<iostream>
-#include<node.h>
 #include<unordered_map>
+#include<list>
 
 
 namespace Controllers{
@@ -139,18 +139,19 @@ namespace Controllers{
     }
 
     //creates a new controller object with the search term nintendo
-    Controller::Controller(): Controller("wiiu_config.yml"){}
+    Controller::Controller(): Controller("WiiUProcontroller.csv"){}
 
-    Controller::Controller(std::string yamlPath){
+    Controller::Controller(std::string CSVPath){
+
+        std::cout << "loading data from csv\n";
+
+        //creates a string to store the search term
+        std::string searchTerm;
+
+        //reads the data from the config file
+        readConfigFile(CSVPath, searchTerm)
 
         std::cout << "looking for device\n";
-
-        YAML::Node yamlFile = YAML::LoadFile(yamlPath);
-
-        //sets the search term from the ymal file
-        std::string searchTerm = yamlFile["device_search_term"];
-
-        sensitivity = yamlFile["sensitivity"];
 
         //looks for a device with the specifed search term
         std::string path = evDevice::findDevicePath(searchTerm);
@@ -192,5 +193,68 @@ namespace Controllers{
 
         return true;
     }
+
+    void Controller::readConfigFile(std::string filePath, std::string& searchTerm){
+        //creates a string to store each line during reading
+        std::string line;
+
+        //creates variables to store the read data for each line
+        std::string key = "";
+        int ID = 0;
+        std::string tags = "";
+        std::string IDstr = "";
+
+        //opens the file
+        std::ifstream configFile(filePath);
+
+        //checks if the file failed to open
+        if(!configFile.is_open()){
+            //file is not open, throw access error
+            throw FileAccessError();
+        }
+
+        //reads the first line (get the titles out of the way)
+        getline(configFile, line);
+
+        //reads all the lines in the file
+        while(getline(configFile,line)){
+
+            //creates a string stream to read from the file with
+            std::istringstream ss(line);
+
+            //reads the data as string
+            getline(ss, key, ',');
+            getline(ss, IDstr, ',');
+            getline(ss, tags);
+
+            //converts ID to an int
+            ID = atoi(IDstr.c_str());
+
+            //checks for special lines
+            if(key == "sens"){
+                //records the senitivity
+                sensitivity = ID;
+            }else if(key == "jmax"){
+                //skips (joystick max not used in program)
+            }else if(key == "seart"){
+                //reads the search term from the file
+                searchTerm = tags;
+            }else{
+                //adds the conbination (ID,Key) to the map
+                eventMap.insert(std::make_pair<std::string,double>(ID,key));
+
+                //checks if the new item is marked as a joystick
+                if(tags == "J"){
+                    //inserts its key into the joysticks list
+                    joysticks.insert(key);
+                }
+            }
+        }
+
+        //closes the file
+        configFile.close();
+    }
+
+    
 
 }//end of controller namespace

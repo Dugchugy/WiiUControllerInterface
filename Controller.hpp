@@ -3,7 +3,8 @@
 
 #include <string>
 #include "Device.hpp"
-#include <unordered_map>
+#include<unordered_map>
+#include<list>
 
 namespace Controllers{
 
@@ -47,7 +48,7 @@ namespace Controllers{
         Controller();
 
         //construcnts a wii u pro controller with the specified search term
-        Controller(std::string ymalPath);
+        Controller(std::string CSVPath);
 
         //gets the current state of the controller
         ControllerState getControllerState();
@@ -58,14 +59,21 @@ namespace Controllers{
         //updates the current state of the controller in the code
         bool UpdateState();
 
+        //reads the data from the config file to interptret the data from the controller
+        void readConfigFile(std::string filePath, std::string& searchTerm);
+
     private:
         evDevice device;
         ControllerState state;
 
         int sensitivity;
 
+        std::list<std::string> joysticks;
+
         std::unordered_map<int, std::string> eventMap;
     };
+
+    class FileAccessError{};
 
 }//end of Controller
 
