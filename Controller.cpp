@@ -191,7 +191,14 @@ namespace Controllers{
         std::vector<struct input_event> events = device.getEvents();
 
         for(int i = 0; i < events.size(); i++){
-            std::cout << "event: " << eventMap[events[i].code] << " with value " << events[i].value << "\n";
+
+            //checks if the event comes from a joystick and is below the senitivity
+            if(eventMap[events[i].code].second == "J" && events[i].value < sensitivity){
+                continue;
+            }
+
+            //prints the event
+            std::cout << "event: " << eventMap[events[i].code].first << " with value " << events[i].value << "\n";
         }
 
         return true;
@@ -245,14 +252,8 @@ namespace Controllers{
                 //reads the search term from the file
                 searchTerm = tags;
             }else{
-                //adds the conbination (ID,Key) to the map
-                eventMap.insert({{ID,key}});
-
-                //checks if the new item is marked as a joystick
-                if(tags == "J"){
-                    //inserts its key into the joysticks list
-                    joysticks.push_front(key);
-                }
+                //adds the conbination (ID,(Key,tags)) to the map
+                eventMap.insert({{ID,{key, tags}});
             }
         }
 

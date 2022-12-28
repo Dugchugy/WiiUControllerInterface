@@ -68,9 +68,7 @@ namespace Controllers{
 
         int sensitivity;
 
-        std::list<std::string> joysticks;
-
-        std::unordered_map<int, std::string> eventMap;
+        std::unordered_map<int, std::pair<std::string, std::string> eventMap;
     };
 
     class FileAccessError{};
