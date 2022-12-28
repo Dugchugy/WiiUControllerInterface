@@ -253,7 +253,7 @@ namespace Controllers{
                 searchTerm = tags;
             }else{
                 //adds the conbination (ID,(Key,tags)) to the map
-                eventMap.insert({{ID,{key, tags}});
+                eventMap.insert({{ID,{key, tags}}});
             }
         }
 
