@@ -1,7 +1,7 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
-#include<libevdev-1.11.0/libevdev/libevdev.h>
+#include<libevdev-1.0/libevdev/libevdev.h>
 #include<string>
 #include<vector>
 
