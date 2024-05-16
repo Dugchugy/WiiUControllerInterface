@@ -142,7 +142,7 @@ namespace Controllers{
     }
 
     //creates a new controller object with the search term nintendo
-    Controller::Controller(): Controller("/home/dugchugy/Documents/RemoteControl/WiiUControllerInterface/WiiUProController.csv"){}
+    Controller::Controller(): Controller("./WiiUProController.csv"){}
 
     Controller::Controller(std::string CSVPath){
 
