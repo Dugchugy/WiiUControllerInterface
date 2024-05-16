@@ -11,3 +11,6 @@ Device.o: Device.cpp Device.hpp
 
 Controller.o: Controller.cpp Controller.hpp Device.hpp
 	g++ -g -c Controller.cpp
+
+clean:
+	rm ./*.o ./main
