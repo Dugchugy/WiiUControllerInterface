@@ -1,6 +1,6 @@
 #include "Device.hpp"
 
-#include<libevdev-1.0/libevdev/libevdev.h>
+#include<libevdev-1.11.0/libevdev/libevdev.h>
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<stdio.h>
