@@ -144,6 +144,8 @@ namespace Controllers{
                 //returns the value of the found node
                 return current->val;
             }
+
+            current = current->next;
         }
 
         //if the key is not found, it is assumed to have a value of 0
