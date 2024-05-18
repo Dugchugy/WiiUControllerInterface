@@ -87,11 +87,20 @@ namespace Controllers{
         newNode->ID = ID;
         newNode->val = val;
 
-        //sets the node after the new node to the one after the node it will be placed behind
-        newNode->next = Behind->next;
+        //checks if Behind is null (if so, item will be inserted at head)
+        if(Behind == NULL){
 
-        //sets the node after the node provided to be the new node
-        Behind->next = newNode;
+            newNode->next = head;
+            head = newNode;
+
+        }else{
+
+            //sets the node after the new node to the one after the node it will be placed behind
+            newNode->next = Behind->next;
+
+            //sets the node after the node provided to be the new node
+            Behind->next = newNode;
+        }
 
         //returns true
         return true;
