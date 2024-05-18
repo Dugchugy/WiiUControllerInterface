@@ -33,7 +33,7 @@ int main(){
                 std::cout << "current state of A: " << WiiUPro.QueryKey("A") << "\n";
 
                 if(WiiUPro.QueryKey("X")){
-                    return;
+                    return 0;
                 }
 
                 //waits one second
