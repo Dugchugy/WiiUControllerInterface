@@ -30,6 +30,8 @@ int main(){
                 //updates the state
                 WiiUPro.UpdateState();
 
+                std::cout << "current state of A: " << WiiUPro.QueryKey("A") << "\n";
+
                 //waits one second
                 sleep(1);
             }
