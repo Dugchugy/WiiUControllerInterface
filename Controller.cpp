@@ -197,6 +197,9 @@ namespace Controllers{
                 continue;
             }
 
+            //Updates the pressed key in the controllerState
+            state.updateKey(eventMap[events[i].code].first, events[i].value);
+
             //prints the event
             std::cout << "event: " << eventMap[events[i].code].first << " with value " << events[i].value << "\n";
         }
